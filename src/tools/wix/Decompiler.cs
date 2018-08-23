@@ -3667,6 +3667,9 @@ namespace Microsoft.Tools.WindowsInstallerXml
                                         case "x64":
                                             package.Platform = Microsoft.Tools.WindowsInstallerXml.Serialize.Package.PlatformType.x64;
                                             break;
+                                        case "Arm64":
+                                            package.Platform = Microsoft.Tools.WindowsInstallerXml.Serialize.Package.PlatformType.arm64;
+                                            break;
                                     }
                                 }
                                 break;

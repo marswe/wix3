@@ -27,7 +27,7 @@ namespace WixTest.Tests.Tools.Candle.Help
         private void AddExpectedHelpText(Candle candle)
         {
             candle.ExpectedOutputStrings.Add(" usage:  candle.exe [-?] [-nologo] [-out outputFile] sourceFile [sourceFile ...]");
-            candle.ExpectedOutputStrings.Add("-arch      x86, intel, x64, intel64, or ia64 (default: x86)");
+            candle.ExpectedOutputStrings.Add("-arch      x86, intel, x64, arm64, intel64, or ia64 (default: x86)");
             candle.ExpectedOutputStrings.Add("-d<name>[=<value>]  define a parameter for the preprocessor");
             candle.ExpectedOutputStrings.Add("-ext <extension>  extension assembly or \"class, assembly\"");
             candle.ExpectedOutputStrings.Add("-I<dir>    add to include search path");

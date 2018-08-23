@@ -147,9 +147,9 @@ The following table describes the parameters that are specific to the <b>Candle<
     <td><b>InstallerPlatform</b></td>
     <td>Optional <b>string</b> parameter.<br />
     <br />
-    Specifies the processor architecture for the package. Valid values are x86, x64, and ia64. (Deprecated values include intel for x86 and intel64 for ia64.) This is equivalent to the -arch switch in candle.exe.<br />
+    Specifies the processor architecture for the package. Valid values are x86, x64, arm64, and ia64. (Deprecated values include intel for x86 and intel64 for ia64.) This is equivalent to the -arch switch in candle.exe.<br />
     <br />
-    Sets the sys.BUILDARCH preprocessor variable and, when the value is x64 or ia64, defaults the Win64 attribute to "yes" on all Package, Component, CustomAction, and RegistrySearch elements in the source file.</td>
+    Sets the sys.BUILDARCH preprocessor variable and, when the value is x64, arm64, or ia64, defaults the Win64 attribute to "yes" on all Package, Component, CustomAction, and RegistrySearch elements in the source file.</td>
   </tr>
   <tr>
     <td><b>OnlyValidateDocuments</b></td>

@@ -83,12 +83,12 @@ namespace WixTest.Tests.Integration.BuildingPackages.InstallPackages
         }
 
         [NamedFact]
-        [Description("Verify that a package can support any of the three platforms intel, intel64 and x64")]
+        [Description("Verify that a package can support any of the four platforms intel, intel64, arm64, and x64")]
         [Priority(2)]
         public void Platforms()
         {
             List<string> platform = new List<string>();
-            platform.AddRange(new string[] { "x86", "ia64", "x64", "intel", "intel64"});
+            platform.AddRange(new string[] { "x86", "ia64", "x64", "arm64", "intel", "intel64"});
             string platformValue;
           
             foreach (string value in platform)

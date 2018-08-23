@@ -2136,14 +2136,14 @@
         </Message>
         <Message Id="InvalidPlatformParameter" Number="264" SourceLineNumbers="no">
             <Instance>
-                The parameter '{0}' is missing or has an invalid value {1}.  Possible values are x86, x64, or ia64.
+                The parameter '{0}' is missing or has an invalid value {1}.  Possible values are x86, x64, arm64, or ia64.
                 <Parameter Type="System.String" Name="name" />
                 <Parameter Type="System.String" Name="value" />
             </Instance>
         </Message>
         <Message Id="InvalidPlatformValue" Number="265">
             <Instance>
-                The Platform attribute has an invalid value {0}.  Possible values are x86, x64, or ia64.
+                The Platform attribute has an invalid value {0}.  Possible values are x86, x64, arm64, or ia64.
                 <Parameter Type="System.String" Name="value" />
             </Instance>
         </Message>
@@ -3758,7 +3758,7 @@
         </Message>
         <Message Id="RequiresMsi500forArmPackage" Number="1143">
             <Instance>
-                Package/@InstallerVersion must be 500 or greater for an Arm package. The value will be changed to 500. Please specify a value of 500 or greater in order to eliminate this warning.
+                Package/@InstallerVersion must be 500 or greater for an Arm or Arm64 package. The value will be changed to 500. Please specify a value of 500 or greater in order to eliminate this warning.
             </Instance>
         </Message>
         <Message Id="RemotePayloadsMustNotAlsoBeCompressed" Number="1144">

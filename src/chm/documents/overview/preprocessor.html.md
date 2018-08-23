@@ -64,7 +64,7 @@ WiX has some built-in variables. They are referenced with the syntax $(sys.VARNA
   <dt>SOURCEFILEDIR</dt>
   <dd>The directory containing the file being processed.</dd>
   <dt>BUILDARCH</dt> 
-  <dd>The platform (Intel, x64, Intel64, ARM) this package is compiled for (set by the -arch switch to Candle.exe or the InstallerPlatform MSBuild property).</dd>
+  <dd>The platform (Intel, x64, Intel64, ARM, Arm64) this package is compiled for (set by the -arch switch to Candle.exe or the InstallerPlatform MSBuild property).</dd>
 </dl>
 
 NOTE: All built-in directory variables are &ldquo;\&rdquo; terminated.

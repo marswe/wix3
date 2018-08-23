@@ -81,7 +81,7 @@
                     installed to a 64-bit location (such as "ProgramFiles64Folder"). The default default value is based on the platform set by
                     the -arch switch to candle.exe or the InstallerPlatform property in a .wixproj MSBuild project:
                     For x86 and ARM, the default value is 'no'.
-                    For x64 and IA64, the default value is 'yes'.
+                    For x64, Arm64, and IA64, the default value is 'yes'.
 
                     This attribute is only allowed on a Tag element found under a Product element.
                   </xs:documentation>

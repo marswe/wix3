@@ -2137,10 +2137,10 @@ namespace Microsoft.Tools.WindowsInstaller.Tools
 
             if (null != platforms)
             {
-                if (this.OnError(InspectorTestType.PackagePlatformsDeprecated, platforms, "The Package/@Platforms attribute is deprecated. Use Package/@Platform instead.  Platform accepts only a single platform (x86, x64, or ia64). If the value in Package/@Platforms corresponds to one of those values, it will be updated."))
+                if (this.OnError(InspectorTestType.PackagePlatformsDeprecated, platforms, "The Package/@Platforms attribute is deprecated. Use Package/@Platform instead.  Platform accepts only a single platform (x86, x64, arm64, or ia64). If the value in Package/@Platforms corresponds to one of those values, it will be updated."))
                 {
                     string platformsValue = platforms.Value.ToLower();
-                    if ("intel" == platformsValue || "x64" == platformsValue || "intel64" == platformsValue)
+                    if ("intel" == platformsValue || "x64" == platformsValue || "intel64" == platformsValue || "arm64" == platformsValue)
                     {
                         XmlAttribute newPlatform = element.OwnerDocument.CreateAttribute("Platform");
                         switch (platformsValue)
@@ -2152,6 +2152,9 @@ namespace Microsoft.Tools.WindowsInstaller.Tools
                                 break;
                             case "intel64":
                                 platformsValue = "ia64";
+                                break;
+                            case "arm64":
+                                platformsValue = "arm64";
                                 break;
                         }
                         newPlatform.Value = platformsValue;

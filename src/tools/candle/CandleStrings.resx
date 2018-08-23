@@ -124,7 +124,7 @@
     <value> usage:  candle.exe [-?] [-nologo] [-out outputFile] sourceFile [sourceFile ...] [@responseFile]
 
    -arch      set architecture defaults for package, components, etc.
-              values: x86, x64, or ia64 (default: x86)
+              values: x86, x64, arm64, or ia64 (default: x86)
    -d&lt;name&gt;[=&lt;value&gt;]  define a parameter for the preprocessor
    -ext &lt;extension&gt;  extension assembly or "class, assembly"
    -fips      enables FIPS compliant algorithms

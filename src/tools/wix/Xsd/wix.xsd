@@ -3170,6 +3170,14 @@
                 </xs:documentation>
               </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="arm64">
+              <xs:annotation>
+                <xs:documentation>
+                  Set this value to declare that the package is an arm64 package.
+                  This value requires that the InstallerVersion property be set to 500 or greater.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="intel">
               <xs:annotation>
                 <xs:documentation>
@@ -9115,7 +9123,7 @@
           The default value is based on the platform set by the -arch switch to candle.exe
           or the InstallerPlatform property in a .wixproj MSBuild project: 
           For x86 and ARM, the default value is 'no'. 
-          For x64 and IA64, the default value is 'yes'.
+          For x64, ARM64, and IA64, the default value is 'yes'.
               </xs:documentation>
             </xs:annotation>
           </xs:attribute>

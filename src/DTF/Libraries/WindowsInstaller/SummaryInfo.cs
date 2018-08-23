@@ -139,10 +139,11 @@ namespace Microsoft.Deployment.WindowsInstaller
         /// <item>Intel ;1033,2046</item>
         /// <item>Intel64;1033,2046</item>
         /// <item>Intel;0</item>
+        /// <item>Arm64;1033</item>
         /// </list>
         /// </p><p>
-        /// If this is a 64-bit Windows Installer, enter Intel64 in the Template summary information property. Note that an
-        /// installation package cannot have both the Intel and Intel64 properties set.
+        /// If this is a 64-bit Windows Installer, enter Intel64 or Arm64 in the Template summary information property. Note that an
+        /// installation package cannot have both the Intel and Intel64 properties set, nor can it have both Intel and Arm64 properties.
         /// </p><p>
         /// If the current platform does not match one of the platforms specified then the installer will not process the
         /// package. Not specifying a platform implies that the package is platform-independent.
