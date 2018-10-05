@@ -7,6 +7,7 @@ static BOOL s_fWow64Initialized;
 static BOOL (*s_pfnDisableWow64)(__out PVOID* );
 static BOOL (*s_pfnRevertWow64)(__in PVOID );
 static BOOL (*s_pfnIsWow64Process) (HANDLE, PBOOL);
+static BOOL (*s_pfnIsWow64Process2) (HANDLE, PUSHORT, PUSHORT);
 static PVOID s_Wow64FSRevertState;
 static BOOL s_fWow64FSDisabled;
 
@@ -31,6 +32,9 @@ extern "C" HRESULT WIXAPI WcaInitializeWow64()
         ExitWithLastError(hr, "failed to get handle to kernel32.dll");
     }
 
+    // First test if IsWow64Process2 API is available.  If it's available, we'll use it, but if not, we'll use IsWow64Process
+    s_pfnIsWow64Process2 = (BOOL (*)(HANDLE, PUSHORT, PUSHORT))::GetProcAddress(s_hKernel32, "IsWow64Process2");
+    
     // This will test if we have access to the Wow64 API
     s_pfnIsWow64Process = (BOOL (*)(HANDLE, PBOOL))::GetProcAddress(s_hKernel32, "IsWow64Process");
     if (NULL != s_pfnIsWow64Process)
@@ -70,10 +74,24 @@ LExit:
 ********************************************************************/
 extern "C" BOOL WIXAPI WcaIsWow64Process()
 {
+    USHORT processMachine = 0;
+    USHORT nativeMachine = 0;
     BOOL fIsWow64Process = FALSE;
+    
     if (s_fWow64Initialized)
     {
-        if (!s_pfnIsWow64Process(GetCurrentProcess(), &fIsWow64Process))
+        // if IsWow64Process2 is available, use it instead of IsWow64Process
+        if (NULL != s_pfnIsWow64Process2)
+        {
+            if (s_pfnIsWow64Process2(GetCurrentProcess(), &processMachine, &nativeMachine)) 
+            {
+                // A zero value for processMachine means the process is running native
+                // A non-zero value indicates the architecture of the guest process running under WoW
+                fIsWow64Process = (0 != processMachine);
+            }
+        }
+        // fall back to existing behavior when IsWow64Process2 is not available
+        else if (!s_pfnIsWow64Process(GetCurrentProcess(), &fIsWow64Process))
         {
             // clear out the value since call failed
             fIsWow64Process = FALSE;
